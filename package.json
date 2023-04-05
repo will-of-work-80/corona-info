@@ -1,0 +1,32 @@
+{
+  "name": "corona-info",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "__prettier-option": "prettier '*/**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,html,md,css,json,yaml,yml,webmanifest}'",
+    "format": "npm run __prettier-option -- --write"
+  },
+  "dependencies": {
+    "@next/font": "13.2.4",
+    "@types/node": "18.15.9",
+    "@types/react": "18.0.29",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "next": "13.2.4",
+    "node-fetch": "^2.6.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "5.0.2"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.2",
+    "chart.js": "^4.2.1",
+    "prettier": "^2.8.7",
+    "react-chartjs-2": "^5.2.0"
+  }
+}

@@ -1,0 +1,42 @@
+.main {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.container {
+    width: 480px;
+}
+
+.header {
+    height: 60px;
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.headerImage {
+    padding-top: 10px;
+}
+
+.headerImage img {
+    max-width: 100%;
+}
+
+.function {
+    width: 100%;
+    padding-top: 10px;
+}
+
+.functionTitle {
+    padding-bottom: 8px;
+}
+
+.chart {
+    display: flex;
+    justify-content: center;
+}
+
+/* @media screen and (min-width: 752px) {
+    .cInfo {
+        display: flex;
+    }
+} */

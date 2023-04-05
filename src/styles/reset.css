@@ -1,0 +1,58 @@
+
+html {
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+}
+
+header,
+footer,
+article,
+section,
+nav,
+aside {
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+ul,
+ol,
+hr {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+p,
+dl,
+dd {
+    margin: 0;
+}
+
+img {
+    border: 0;
+}
+
+button {
+    color: inherit;
+    font: inherit;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    text-transform: none;
+}

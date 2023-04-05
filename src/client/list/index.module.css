@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.item {
+    padding: 12px 0;
+    width: 95px;
+    border-top: 1px solid #757575;
+}
+
+.nameJp {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.npatients {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+}
