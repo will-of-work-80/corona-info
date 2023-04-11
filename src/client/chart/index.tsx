@@ -1,7 +1,8 @@
 import styles from './index.module.css';
-import { type FunctionComponent, useEffect, useState } from 'react';
+import { type FunctionComponent, useEffect, useState, useMemo } from 'react';
 import { Bar } from 'react-chartjs-2';
 import { type ChartData, Chart, registerables } from 'chart.js';
+import { sliceByNumber } from '../../utils/array';
 
 export interface CoronaChartProps {
     city: ReadonlyArray<string>;
@@ -15,24 +16,31 @@ export const CoronaChart: FunctionComponent<CoronaChartProps> = (props) => {
     Chart.register(...registerables);
 
     const [chartData, setChartData] = useState<ChartData<'bar'>>({ datasets: [] });
-    const [next, setNext] = useState(true);
+    const [next, setNext] = useState(0);
+    const viewData = useMemo(() => {
+        return {
+            cityList: sliceByNumber(props.city, 6),
+            npatients: sliceByNumber(props.npatients, 6),
+        };
+    }, [props.city, props.npatients]);
 
     useEffect(() => {
-        let cityList: Array<string> = [];
-        let npatients: Array<number> = [];
-        if (next) {
-            cityList = props.city.slice(0, 6);
-            npatients = props.npatients.slice(0, 6);
-        } else {
-            cityList = props.city.slice(6, 12);
-            npatients = props.npatients.slice(6, 12);
+        if (!viewData.cityList) {
+            return;
+        }
+        if (viewData.cityList.length <= next) {
+            setNext(0);
+            return;
+        }
+        if (!viewData.npatients) {
+            return;
         }
         const data: ChartData<'bar'> = {
-            labels: cityList,
+            labels: viewData.cityList[next],
             datasets: [
                 {
                     label: '都道府県',
-                    data: npatients,
+                    data: viewData.npatients[next],
                     backgroundColor: [
                         // 'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -54,7 +62,7 @@ export const CoronaChart: FunctionComponent<CoronaChartProps> = (props) => {
             ],
         };
         setChartData(data);
-    }, [next, props.city, props.npatients]);
+    }, [next, viewData]);
 
     const options: {} = {
         maintainAspectRatio: false,
@@ -64,7 +72,7 @@ export const CoronaChart: FunctionComponent<CoronaChartProps> = (props) => {
     return (
         <>
             <Bar height={450} width={450} data={chartData} options={options} />
-            <button className={styles.nextButton} onClick={() => setNext(!next)}>
+            <button className={styles.nextButton} onClick={() => setNext(next + 1)}>
                 次へ
             </button>
         </>

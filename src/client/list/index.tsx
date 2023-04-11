@@ -15,8 +15,8 @@ export const CoronaList: FunctionComponent<CoronaListProps> = (props) => {
             <div>※一番最新({props.list[0].date})のデータを表示しています。</div>
             <div className={styles.container}>
                 <ul className={styles.list}>
-                    {props.list.map((item) => (
-                        <li className={styles.item}>
+                    {props.list.map((item, i) => (
+                        <li className={styles.item} key={i}>
                             <div className={styles.nameJp}>{item.nameJp}</div>
                             <div className={styles.npatients}>{item.npatients}人</div>
                         </li>
