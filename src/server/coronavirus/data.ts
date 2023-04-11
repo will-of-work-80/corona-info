@@ -37,7 +37,10 @@ const useFetch = async (url: string): Promise<CoronaInfoRaw> => {
     }
 };
 
-const converter = async (data: Promise<CoronaInfoRaw | null>, date: string): Promise<CoronaInfoEntity | null> => {
+const converter = async (
+    data: Promise<CoronaInfoRaw | null>,
+    date: string
+): Promise<CoronaInfoEntity | null> => {
     const info = await data;
     if (info === null) {
         return null;
@@ -47,8 +50,8 @@ const converter = async (data: Promise<CoronaInfoRaw | null>, date: string): Pro
     return {
         errorInfo: info.errorInfo,
         itemList,
-        countInfected: itemList && coronaSum(itemList) || 0,
-        countInfectedTokyo: itemList && coronaSum(itemList, '東京都') || 0,
+        countInfected: (itemList && coronaSum(itemList)) || 0,
+        countInfectedTokyo: (itemList && coronaSum(itemList, '東京都')) || 0,
         date,
     };
 };
@@ -65,10 +68,10 @@ export const coronaSum = (itemList: Array<CoronaItemEntity>, city?: string): num
     return itemList
         .map((arg) => {
             if (!city) {
-                return Number(arg.npatients);
+                return arg.npatients;
             }
             if (city && arg.nameJp === city) {
-                return Number(arg.npatients);
+                return arg.npatients;
             }
             return 0;
         })

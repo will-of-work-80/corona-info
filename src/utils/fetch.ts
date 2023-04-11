@@ -14,7 +14,6 @@ type PostMethod = {
     query?: object;
 } & FetchBase;
 
-
 type PutMethod = {
     method: 'PUT';
     query?: object;

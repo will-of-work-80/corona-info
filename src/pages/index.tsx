@@ -46,12 +46,12 @@ export const getServerSideProps: GetServerSideProps = async () => {
         return {
             props: {
                 errorInfo: CLIENT_ERROR_MESSAGE.DEFAULT_ERROR,
-            }
+            },
         };
     }
     const sortItemList = coronaByDate.itemList ? coronaByDate.itemList.sort(compareFunc) : [];
-    const city = (sortItemList.map((arg) => arg.nameJp).slice(0, 6)) || [];
-    const npatients = sortItemList.map((arg) => arg.npatients).slice(0, 6);
+    const city = sortItemList.map((arg) => arg.nameJp) || [];
+    const npatients = sortItemList.map((arg) => arg.npatients);
 
     const props = {
         props: {
@@ -60,14 +60,15 @@ export const getServerSideProps: GetServerSideProps = async () => {
             noticeInfo: {
                 infoFormatDate: coronaByDateOneDayAge.date,
                 totalInfected: coronaByDate.countInfected - coronaByDateOneDayAge.countInfected,
-                totalInfectedTokyo: coronaByDate.countInfectedTokyo - coronaByDateOneDayAge.countInfectedTokyo,
+                totalInfectedTokyo:
+                    coronaByDate.countInfectedTokyo - coronaByDateOneDayAge.countInfectedTokyo,
             },
-            itemList: sortItemList.map(arg => {
+            itemList: sortItemList.map((arg) => {
                 return {
                     date: arg.date,
                     nameJp: arg.nameJp,
                     npatients: priceFormat(arg.npatients, 3),
-                }
+                };
             }),
             chartInfo: {
                 city: city,

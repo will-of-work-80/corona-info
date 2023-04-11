@@ -9,7 +9,7 @@ export interface CoronaInfoEntity {
     itemList: Array<CoronaItemEntity> | null;
     countInfected: number;
     countInfectedTokyo: number;
-    date: string
+    date: string;
 }
 
 export interface CoronaViewEntity {
@@ -20,8 +20,7 @@ export interface CoronaViewEntity {
     };
     chartInfo: {
         city: ReadonlyArray<string>;
-        npatients: ReadonlyArray<string>;
-
+        npatients: ReadonlyArray<number>;
     };
 }
 
@@ -34,12 +33,12 @@ interface Input {
 export class CoronaItemEntity {
     readonly date: string;
     readonly nameJp: string;
-    readonly npatients: string;
+    readonly npatients: number;
 
     constructor(info: Input) {
         this.date = info.date;
         this.nameJp = info.name_jp;
-        this.npatients = info.npatients;
+        this.npatients = Number(info.npatients);
     }
 
     static converter(raw: CoronaItemRaw) {

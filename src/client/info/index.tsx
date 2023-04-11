@@ -1,5 +1,6 @@
 import type { FunctionComponent } from 'react';
 import styles from './index.module.css';
+import { priceFormat } from '../../utils/format';
 
 export interface CoronaInfoProps {
     infoFormatDate: string;
@@ -15,12 +16,14 @@ export const CoronaInfo: FunctionComponent<CoronaInfoProps> = (props) => {
         <ul className={styles.container}>
             {props.totalInfected ? (
                 <li>
-                    前日({props.infoFormatDate})より{props.totalInfected}人増えています
+                    前日({props.infoFormatDate})より{priceFormat(props.totalInfected, 3)}
+                    人増えています
                 </li>
             ) : null}
             {props.totalInfectedTokyo ? (
                 <li>
-                    東京は前日({props.infoFormatDate})より{props.totalInfectedTokyo}人増えています
+                    東京は前日({props.infoFormatDate})より{priceFormat(props.totalInfectedTokyo, 3)}
+                    人増えています
                 </li>
             ) : null}
         </ul>

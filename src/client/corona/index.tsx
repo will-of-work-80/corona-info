@@ -21,16 +21,26 @@ export const Corona: FunctionComponent<Props> = (props) => (
             </div>
             <div className={styles.function}>
                 <h3 className={styles.functionTitle}>お知らせ</h3>
-                <CoronaInfo infoFormatDate={props.noticeInfo.infoFormatDate} totalInfected={props.noticeInfo.totalInfected} totalInfectedTokyo={props.noticeInfo.totalInfectedTokyo} />
+                <CoronaInfo
+                    infoFormatDate={props.noticeInfo.infoFormatDate}
+                    totalInfected={props.noticeInfo.totalInfected}
+                    totalInfectedTokyo={props.noticeInfo.totalInfectedTokyo}
+                />
             </div>
             <div className={styles.function}>
-                <h3 className={styles.functionTitle}>全国のコロナ感染者数(都道府県別)</h3>
+                <h3 className={styles.functionTitle}>国内の発生状況</h3>
+            </div>
+            <div className={styles.function}>
+                <h3 className={styles.functionTitle}>全国のコロナ感染者数(リスト)</h3>
                 <CoronaList list={props.listInfo} />
             </div>
             <div className={styles.function}>
-                <h3 className={styles.functionTitle}>発生者数トップ6</h3>
+                <h3 className={styles.functionTitle}>全国のコロナ感染者数(チャート)</h3>
                 <div className={styles.chart}>
-                    <CoronaChart city={props.chartInfo.city} npatients={props.chartInfo.npatients} />
+                    <CoronaChart
+                        city={props.chartInfo.city}
+                        npatients={props.chartInfo.npatients}
+                    />
                 </div>
             </div>
         </div>

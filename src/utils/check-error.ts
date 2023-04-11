@@ -1,5 +1,5 @@
 export interface ErrorInfo {
-    errorFlag: '0' | '1' | '2',
+    errorFlag: '0' | '1' | '2';
     errorCode: '500' | '401' | '403' | '404';
     errorMessage: string;
 }
