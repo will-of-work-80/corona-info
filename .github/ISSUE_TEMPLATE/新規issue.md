@@ -1,5 +1,5 @@
 ---
-name: 'Issue: 新規issue'
+name: '新規issue'
 about: 新規追加の時に利用します。
 title: ''
 labels: ''
