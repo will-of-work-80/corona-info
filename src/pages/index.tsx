@@ -33,15 +33,20 @@ const TopRoot: FunctionComponent<Props> = (props) => {
 
 export const getServerSideProps: GetServerSideProps = async () => {
     const github = await getGithub();
-    let coronaByDate = null;
-    let coronaByDateOneDayAge = null;
-    for (let i = 0; i < 10; ++i) {
-        coronaByDate = await getCoronaByDate(getBeforeNdays(i));
-        if (coronaByDate?.itemList && coronaByDate.itemList.length !== 0) {
-            coronaByDateOneDayAge = await getCoronaByDate(getBeforeNdays(i + 1));
-            break;
-        }
-    }
+    // MEMO: 20230509以降情報更新がされないため、固定で日付を設定してデータを取得する
+    // let coronaByDate = null;
+    // let coronaByDateOneDayAge = null;
+    // for (let i = 0; i < 10; ++i) {
+    //     coronaByDate = await getCoronaByDate(getBeforeNdays(i));
+    //     console.log('coronaByDate');
+    //     console.log(coronaByDate);
+    //     if (coronaByDate?.itemList && coronaByDate.itemList.length !== 0) {
+    //         coronaByDateOneDayAge = await getCoronaByDate(getBeforeNdays(i + 1));
+    //         break;
+    //     }
+    // }
+    const coronaByDate = await getCoronaByDate('20230509');
+    const coronaByDateOneDayAge = await getCoronaByDate('20230508');
     if (!coronaByDate || !coronaByDateOneDayAge) {
         return {
             props: {
