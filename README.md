@@ -18,6 +18,10 @@ git 2.32.0
             {"errorInfo":{"errorFlag":"0","errorCode":null,"errorMessage":null},"itemList":[]}
         -   データ取得失敗の時
 
+-   画面デザイン
+    -   Figmaを利用
+    -   https://www.figma.com/file/k6pQTOxYVO9b4V7l9gPgcM/%E3%82%B3%E3%83%AD%E3%83%8A%E6%83%85%E5%A0%B1?type=design&node-id=0-1&mode=design&t=gwgMf1h6I0BRvoem-0
+
 ## How to deploy
 
 ```sh
