@@ -8,11 +8,6 @@
     width: 480px;
 }
 
-.header {
-    height: 60px;
-    border-bottom: 1px solid rgb(0, 0, 0);
-}
-
 .headerImage {
     padding-top: 10px;
 }

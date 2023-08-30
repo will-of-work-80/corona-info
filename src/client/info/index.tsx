@@ -22,7 +22,8 @@ export const CoronaInfo: FunctionComponent<CoronaInfoProps> = (props) => {
             ) : null}
             {props.totalInfectedTokyo ? (
                 <li>
-                    東京は前日({props.infoFormatDate})より、{priceFormat(props.totalInfectedTokyo, 3)}
+                    東京は前日({props.infoFormatDate})より、
+                    {priceFormat(props.totalInfectedTokyo, 3)}
                     人増えています。
                 </li>
             ) : null}
