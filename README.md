@@ -1,5 +1,8 @@
 # Corona info site
 
+APIサービス終了のため、こちらも対応が終わりました。
+
+
 ## Development environment
 Node.js 18.13.0
 Homebrew 4.0.6
