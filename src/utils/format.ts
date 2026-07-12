@@ -1,3 +1,4 @@
+// ttt
 export const priceFormat = (price: number | string, digits: number | null) => {
     const digitsPrice = typeof price === 'number' ? price : Number(price);
     const digitsNumber = typeof digits === 'number' ? digits : 3;
