@@ -22,7 +22,7 @@ const TopRoot: FunctionComponent<Props> = (props) => {
                 />
             ) : (
                 <>
-                    <div>エラーが発生しました。以下をご確認ください。</div>
+                    <div>エラーが発生しました。以下をご確認</div>
                     <div>{props.errorInfo.errorCode}</div>
                     <div>{props.errorInfo.errorMessage}</div>
                 </>
